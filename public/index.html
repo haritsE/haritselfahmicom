@@ -72,6 +72,9 @@
 
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   </head>
   <body class="d-flex h-100 text-black bg-color">
     
@@ -79,16 +82,39 @@
       <header class="mb-auto">
       </header>
 
-      <main class="px-3">
-        <h1>Harits Elfahmi</h1>
-        <p class="lead">Hi, I'm <b>Harits</b>. I am a Software Engineer from Indonesia, and now working in Singapore. </p>
+      <h1>Harits Elfahmi</h1>
+      <div id="final-container"></div>
+
+
+      <main class="px-3" id="typed-strings">
+        <p class="lead">Hi, I'm <b>Harits</b>. I am a Software Engineer from Indonesia that is currently working in Singapore. </p>
         <p class="lead">I mostly work on the Backend in Go, Python, or NodeJS, but as a fun side projects I like to create small projects with various technology.</p>
-        <p class="lead">To find out more, check me out on <a target="_blank" href="https://www.linkedin.com/in/harits-elfahmi-58047570/"><img class="valign" src="linkedin.png" width="24px" height="24px">LinkedIn</a> or <a target="_blank" href="https://github.com/haritsE"><img class="valign" src="github.png" width="24px" height="24px">GitHub</a>.</p>
+        <p class="lead">To find out more, check me out on 
+          <b><a target="_blank" href="https://www.linkedin.com/in/harits-elfahmi-58047570/">LinkedIn</a></b>,
+          <b><a target="_blank" href="https://github.com/haritsE">GitHub</a></b>, or
+          <b><a target="_blank" href="https://twitter.com/haritselfahmi">Twitter</a></b>.</p>
       </main>
+      <span id="typed"></span>
 
       <footer class="mt-auto text-black-50">
       </footer>
     </div>
 
   </body>
+  <script>
+    var typed = new Typed('#typed', {
+      stringsElement: '#typed-strings',
+      fadeOut: true,
+      fadeOutDelay: 0,
+      typeSpeed: 10,
+      showCursor: false,
+      preStringTyped: function(pos, self) {
+
+        if (pos >= 1) {
+          document.getElementById("final-container").innerHTML += self.strings[pos-1] + "<br/><br/>";
+          console.log('preStringTyped ', self.strings[pos-1]);
+        }
+      },
+    });
+  </script>  
 </html>
